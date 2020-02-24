@@ -39,9 +39,16 @@ function addNumbers(num1, num2) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(id, name, email) {
+
+  return{
+    id: id,
+    name: name,
+    email: email
+  }
+  
 }
+
 
 /**
  * ### Challenge `getName`
@@ -56,9 +63,10 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(object) {
+  return `Hello, my name is ${object.name}`;
 }
+
 
 /**
  * ### Challenge `makeSmartPerson`
@@ -73,15 +81,19 @@ function getName(/* code here */) {
  *         and returns a string like `Hello, my name is {name}`.
  *         where `{name}` is the name passed into `makeSmartPerson`.
 */
-function makeSmartPerson(/* code here */) {
-  /* code here */
+function makeSmartPerson(name) {
+  return {
+    name: name,
+    sum: function (num1, num2){
+      return num1+num2
+    },
+    speak: function(){
+      return `Hello, my name is ${name}`
+    }
+  }
 }
 
 
-
-
-
-/*
 // ⭐️ Example Test Data ⭐️
 
 var inventory = [
@@ -101,7 +113,7 @@ var inventory = [
   { id: 14, car_make: "Dodge", car_model: "Ram Van 1500", car_year: 1999 }
   /// ... Truncated
 ]
-*/
+
 /**
   * ### Example Array Challenge:
   * 
@@ -135,8 +147,9 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoByIndex(inventory, index) {
-  /* code here */
+function getCarInfoByIndex(inventory, index){
+  const car =inventory[0];
+  return `The car is a ${car.car_make} ${car.car_model}.`
 }
 
 /**
