@@ -124,7 +124,7 @@ var inventory = [
   * NOTE: This example has been completed for you.
 **/
 function get3rdCar(inventory) {
-  const the3rd = inventory.find((item, index) => {
+  const the3rd = inventory.find((item, index) => { 
     return index === 2 // we use 2 because index is zero-based.
   })
   return `The car is a ${the3rd.car_make} ${the3rd.car_model}`
@@ -180,11 +180,17 @@ function getLastCarInfo(inventory) {
  * For example, if getCarInfoById is invoked with the inventory and the number 1,
  * it will return `This is a Lincoln Navigator`.
 */
-function getCarInfoById(inventory,id) {
-  return `This is a ${id.car_make} ${id.car_model}.`
+
+/*function get3rdCar(inventory) {
+  const the3rd = inventory.find((item, index) => { 
+    return index === 2 // we use 2 because index is zero-based.
+  })
+  return `The car is a ${the3rd.car_make} ${the3rd.car_model}`*/
+function getCarInfoById(inventory, id){
+  const idCar = inventory.find(car => car = id);
+  return `The car is a ${idCar.car_make} ${idCar.car_model} .`
 }
 
-getCarInfoById(inventory,1)
 
 /**
  * ### Challenge `sortCarInventory`
