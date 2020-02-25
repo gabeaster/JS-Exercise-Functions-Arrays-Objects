@@ -1,3 +1,4 @@
+const inventory = require("./data/inventory.js");
 // ⭐️ Example Challenge start ⭐️
 
 /**
@@ -95,7 +96,7 @@ function makeSmartPerson(name) {
 
 
 // ⭐️ Example Test Data ⭐️
-
+/*
 var inventory = [
   { id: 1, car_make: "Lincoln", car_model: "Navigator", car_year: 2009 },
   { id: 2, car_make: "Mazda", car_model: "Miata MX-5", car_year: 2001 },
@@ -112,7 +113,8 @@ var inventory = [
   { id: 13, car_make: "Chevrolet", car_model: "Cavalier", car_year: 1997 },
   { id: 14, car_make: "Dodge", car_model: "Ram Van 1500", car_year: 1999 }
   /// ... Truncated
-]
+]*/
+
 
 /**
   * ### Example Array Challenge:
@@ -200,8 +202,32 @@ function getCarInfoById(inventory, id){
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * sortCarInventory returns an inventory that is sorted by car_model, ascending [A-Z].
 */
-function sortCarInventory(/* code here */) {
-  /* code here */
+// console.log(inventory[2].car_model)
+// function sortCarInventory(arr){
+//   let newArr = [];
+//   for (let i = 0; i < arr.length; i++) {
+//     let model = arr[i].car_model;
+//     newArr.push(model)
+//   }
+// return newArr.sort();
+// }
+
+// or 
+//This has to be wrong. It says can not get model of undefined but going by the console log and Jay's answer this is incorrect. 
+function sortCarInventory(inventory){
+  let newArr = inventory.sort((a,b) => {
+    let car1 = a.car_model;
+    let car2 = b.car_model;
+    if(car1 < car2){
+      return -1
+    } 
+    if (car1 > car2){
+      return 1
+    }
+    return 0
+  });
+
+  return newArr
 }
 
 /**
@@ -213,8 +239,13 @@ function sortCarInventory(/* code here */) {
  *     (1) an array which is an inventory of cars like the one inside /data/inventory.js.
  * getModelYears returns an array containing all the 'car_year's in the inventory.
 */
-function getModelYears(/* code here */) {
-  /* code here */
+function getModelYears(inventory) {
+  let newArr = [];
+  for (let i=0; i < inventory.length; i++){
+    const year = inventory[i].car_year;
+    newArr.push(year);
+  }
+  return newArr
 }
 
 /**
@@ -229,8 +260,15 @@ function getModelYears(/* code here */) {
  * with a `car_year` which is at most the given desired max year,
  * in the same order as they appear in the original inventory.
 */
-function getOlderCars(/* code here */) {
-  /* code here */
+function getOlderCars(inventory,maxYear) {
+  const oldCarArr = [];
+    for (let i=0; i<inventory.length; i++){
+      if (inventory[i].car_year <= maxYear){
+        oldCarArr.push(inventory[i])
+      }
+    }
+
+    return oldCarArr;
 }
 
 /**
@@ -244,8 +282,14 @@ function getOlderCars(/* code here */) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
 */
-function getGermanCars(/* code here */) {
-  /* code here */
+function getGermanCars(inventory) {
+  const germanCarArr = [];
+    for (let i=0; i<inventory.length; i++){
+      if (inventory[i].car_make === 'Audi' || inventory[i].car_make === 'Mercedes-Benz' || inventory[i].car_make === 'Volkswagen' || inventory[i].car_make === 'BMW'){
+        germanCarArr.push(inventory[i])
+      }
+    }
+    return germanCarArr
 }
 
 /**
@@ -266,9 +310,9 @@ function getGermanCars(/* code here */) {
  *   return num * 2
  * }
 */
-const sum = null; // code here!
-const addFive = null; // code here!
-const argTimesTwo = null; // code here!
+const sum = (a,b) => a + b;
+const addFive = (a) => a + 5;
+const argTimesTwo = (a) => a * 2;
 
 /**
  * ### Challenge `carMaker`
